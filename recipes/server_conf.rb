@@ -42,7 +42,7 @@ template "#{node['postgresql']['dir']}/postgresql.conf" do
   source 'postgresql.conf.erb'
   owner 'postgres'
   group 'postgres'
-  mode '0600'
+  mode '0640'
   notifies change_notify, 'service[postgresql]', :immediately
 end
 
@@ -50,6 +50,6 @@ template "#{node['postgresql']['dir']}/pg_hba.conf" do
   source 'pg_hba.conf.erb'
   owner 'postgres'
   group 'postgres'
-  mode '0600'
+  mode '0640'
   notifies change_notify, 'service[postgresql]', :immediately
 end
